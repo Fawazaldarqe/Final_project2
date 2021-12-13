@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Collage Computer science</title>
+		<link rel="stylesheet" href="ScrollBar.css">
+		<style>			
+			body{
+				background-color: black;
+				background-image: url(img/original_kku.jpeg);
+				background-repeat: initial;
+				background-attachment: scroll;
+				background-size: cover;
+				background-position-y: 300px;
+				background-position-x: center;
+			}
+			.img_kku{
+				position: absolute;
+                left: 0px;
+                top: 0px;
+			}
+			.green_block{
+				background: limegreen;
+				position: absolute;
+				left: 0px;
+                top: 0px;
+				width: 1263px; 
+				height: 100px;
+				border-color: white;
+				border-style: none none solid;				
+				border-width: 4px; 
+			}
+            @media screen and (min-width: 1400px){
+              .green_block{
+				width: 1420px; 
+				height: 100px;
+			}
+            }
+			.green_block_down{
+				background: limegreen;
+				position: absolute;
+				left: 0px;
+                bottom: -180px;
+				width: 1263px; 
+				height: 100px;
+				border-color: white;
+				border-style: solid;
+				border-width: 4px 0px 0px 0px;
+			}
+            @media screen and (min-width: 1400px){
+              .green_block_down{
+				width: 1420px; 
+				height: 100px;
+			}
+            }
+			.boxoftitle{
+				background: white;
+				position: absolute;
+				font-size: 18px;
+				right: 14px;
+                top: 15px;
+				width: 222px; 
+				height: 47px;
+				color: black;
+				line-height: 45px;
+                vertical-align: middle;
+                text-align: center;
+				border-color: black;
+                border-radius: 17px;
+				border-style: solid ;
+				border-width: 2px;
+			}
+			form.searchbox input[type=text]{
+				background-color: white ;
+				position: absolute;
+				font-size: 18px;
+				left: 300px;
+                top: 15px;
+				width: 350px; 
+				height: 47px;
+				color: black;
+				line-height: 45px;
+                vertical-align: middle;
+                text-align: left;
+				border-color: black;
+                border-radius: 0px 17px 17px 0px;
+				border-style: solid ;
+				border-width: 2px;
+			}
+			form.searchbox input[type=text]:hover{
+				background-color: whitesmoke ;
+				position: absolute;
+				font-size: 18px;
+				left: 300px;
+                top: 15px;
+				width: 350px; 
+				height: 47px;
+				line-height: 45px;
+                vertical-align: middle;
+                text-align: left;
+				border-color: darkblue;
+                border-radius: 0px 17px 17px 0px;
+				border-style: solid ;
+				border-width: 3px;
+			}
+			form.searchbox button{
+				color: black;
+				background-color: grey;
+				position: absolute;
+				left: 607px;
+                top: 15px;
+				width: 50px; 
+				height: 53px;
+				cursor: pointer;
+				border-color: black;
+                border-radius: 15px;
+				border-style: solid ;
+				border-width: 2px;
+				background-image: url(img/search.png);
+                background-size: 31px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-position: 7%;
+				-moz-border-radius: 0 15px 15px 0;
+                -webkit-border-radius: 0 15px 15px 0;
+			}
+			form.home button{
+				background-color: black;
+				position: absolute;
+				font-size: 13px;
+				font-weight: bold;
+				left: 150px;
+                top: 15px;
+				width: 75px; 
+				height: 53px;
+				color: white;
+				line-height: 45px;
+                vertical-align: middle;
+                text-align: center;
+                border-radius: 17px 0px 0px 17px;
+			}
+			form.home button:hover{
+				background-color: grey;
+			}
+			form.about_us button{
+				background-color: black;
+				position: absolute;
+				font-size: 13px;
+				font-weight: bold;
+				left: 225px;
+                top: 15px;
+				width: 75px; 
+				height: 53px;
+				color: white;
+				line-height: 45px;
+                vertical-align: middle;
+                text-align: center;
+                border-radius: 0px;
+			}
+			form.about_us button:hover{
+				background-color: grey;
+			}
+			.gmail{
+				background: white;
+				position: absolute;
+				font-size: 18px;
+				left: 45px;
+                bottom: -157px;
+				width: 333px; 
+				height: 47px;
+				color: black;
+				line-height: 45px;
+                vertical-align: middle;
+                text-align: center;
+				border-color: black;
+                border-radius: 17px;
+				border-style: solid;
+				border-width: 2px;
+				text-decoration: none;
+			}
+            @media screen and (min-width: 1400px){
+              .gmail{
+				left: 45px;
+                bottom: -157px;
+			}
+            }
+			.accounts{
+				background: white;
+				position: absolute;
+				font-size: 18px;
+				right: 260px;
+                bottom: -157px;
+				width: 225px; 
+				height: 47px;
+				color: black;
+				line-height: 45px;
+                vertical-align: middle;
+                text-align: center;
+				border-color: black;
+                border-radius: 17px;
+				border-style: solid ;
+				border-width: 2px;
+			}
+            @media screen and (min-width: 1400px){
+              .accounts{
+				right: 260px;
+                bottom: -157px;
+			}
+            }
+			.location{
+				background: white;
+				position: absolute;
+				font-size: 18px;
+				left: 410px;
+                bottom: -157px;
+				width: 333px; 
+				height: 47px;
+				color: black;
+				line-height: 45px;
+                vertical-align: middle;
+                text-align: center;
+				border-color: black;
+                border-radius: 17px;
+				border-style: solid;
+				border-width: 2px;
+			}
+            @media screen and (min-width: 1400px){
+              .location{
+				left: 485px;
+                bottom: -157px;
+			}
+            }
+			form.twitter button{
+				position: absolute;
+				right: 180px;
+                bottom: -157px;
+				width: 50px; 
+				height: 50px;
+				cursor: pointer;
+				border-color: white;
+                border-radius: 10px;
+				border-style: solid ;
+				border-width: 1px;
+				background-color: white;
+				background-image: url(img/twitter.png);
+                background-size: 50px;
+                background-repeat: no-repeat;
+                background-position: center;
+			}
+			form.facebook button{
+				position: absolute;
+				right: 110px;
+                bottom: -157px;
+				width: 50px; 
+				height: 50px;
+				cursor: pointer;
+				border-color: white;
+                border-radius: 10px;
+				border-style: solid ;
+				border-width: 1px;
+				background-color: white;
+				background-image: url(img/facebook.png);
+                background-size: 50px;
+                background-repeat: no-repeat;
+                background-position: center;	
+			}
+			form.youtube button{
+				position: absolute;
+				right: 40px;
+                bottom: -157px;
+				width: 50px; 
+				height: 50px;
+				cursor: pointer;
+				border-color: white;
+                border-radius: 10px;
+				border-style: solid ;
+				border-width: 1px;
+				background-color: white;
+				background-image: url(img/youtube.png);
+                background-size: 50px;
+                background-repeat: no-repeat;
+                background-position: center;	
+			}
+			form.Computer_science button{
+				position: absolute;
+				left: 50px;
+                top: 135px;
+				width: 120px; 
+				height: 120px;
+				cursor: pointer;
+				border-color: white;
+                border-radius: 15px;
+				border-style: solid ;
+				border-width: 3px;
+				background-color: limegreen;
+				background-image: url(img/Computer_science.png);
+                background-size: 75px;
+                background-repeat: no-repeat;
+                background-position-x: center;
+				background-position-y: 10px;
+			}
+			form.Computer_science button:hover{
+				background-color: darkgreen;
+			}
+			.Computer_science_block{
+				background: white;
+				color: black;
+				position: absolute;
+				font-size: 12px;
+				font-weight: bold;
+				line-height: 15px;
+                vertical-align: baseline;
+                text-align: center;
+				left: 60px;
+				top: 228px;
+				width: 100px;
+				height: 20px;
+				border-radius: 15px;
+			}
+			form.Information_system button{
+				position: absolute;
+				left: 225px;
+                top: 135px;
+				width: 120px; 
+				height: 120px;
+				cursor: pointer;
+				border-color: white;
+                border-radius: 15px;
+				border-style: solid ;
+				border-width: 3px;
+				background-color: limegreen;
+				background-image: url(img/Information_system.png);
+                background-size: 75px;
+                background-repeat: no-repeat;
+                background-position-x: center;
+				background-position-y: 10px;
+			}
+			form.Information_system button:hover{
+				background-color: darkgreen;
+			}
+			.Information_system_block{
+				background: white;
+				color: black;
+				position: absolute;
+				font-size: 12px;
+				font-weight: bold;
+				line-height: 15px;
+                vertical-align: baseline;
+                text-align: center;
+				left: 235px;
+				top: 228px;
+				width: 100px;
+				height: 20px;
+				border-radius: 15px;
+            }
+			/*dark mode start here*/
+			.dm{
+				color: white;
+				font-size: 18px;
+				position: absolute;
+				top: 63px;
+				left: 665px;
+			}
+			.dark-mode {
+				background-color: gainsboro;
+				background-image: url(img/black_kku.jpeg);
+				background-repeat: initial;
+				background-attachment: scroll;
+				background-size: cover;
+				background-position-y: 300px;
+				background-position-x: center;
+			}
+			.switch {
+			position: relative;
+			display: inline-block;
+			width: 60px;
+			height: 34px;
+			top: 23px;
+			left: 675px;
+			}
+			.switch input { 
+			opacity: 0;
+			width: 0;
+			height: 0;
+			}
+			.slider {
+			position: absolute;
+			cursor: pointer;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: #ccc;
+			-webkit-transition: .4s;
+			transition: .4s;
+			}
+			.slider:before {
+			position: absolute;
+			content: "";
+			height: 26px;
+			width: 26px;
+			left: 4px;
+			bottom: 4px;
+			background-color: white;
+			-webkit-transition: .4s;
+			transition: .4s;
+			}
+			input:checked + .slider {
+			background-color: #2196F3;
+			}
+			input:focus + .slider {
+			box-shadow: 0 0 1px #2196F3;
+			}
+			input:checked + .slider:before {
+			-webkit-transform: translateX(26px);
+			-ms-transform: translateX(26px);
+			transform: translateX(26px);
+			}
+			.slider.round {
+			border-radius: 34px;
+			}
+			.slider.round:before {
+			border-radius: 50%;
+			}
+			/*dark mode end here*/
+
+			/*loading bar for page start from here*/
+			#loader {
+			background-color: limegreen;
+			background-image: url(img/KKU.png);
+			background-size: 100px;
+			background-repeat: no-repeat;
+			background-position-x: center;
+			background-position-y: center;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			z-index: 1;
+			width: 120px;
+			height: 120px;
+			margin: -76px 0 0 -76px;
+			border: 16px solid white;
+			border-radius: 50%;
+			border-top: 16px solid gray;
+			-webkit-animation: spin 1.5s linear infinite;
+			animation: spin 1.5s linear infinite;
+			}
+			@-webkit-keyframes spin {
+			0% { -webkit-transform: rotate(0deg); }
+			100% { -webkit-transform: rotate(360deg); }
+			}
+			@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+			}
+			.animate-bottom {
+			position: relative;
+			-webkit-animation-name: animatebottom;
+			-webkit-animation-duration: 1s;
+			animation-name: animatebottom;
+			animation-duration: 1s
+			}
+			@-webkit-keyframes animatebottom {
+			from { bottom:-100px; opacity:0 } 
+			to { bottom:0px; opacity:1 }
+			}
+			@keyframes animatebottom { 
+			from{ bottom:-100px; opacity:0 } 
+			to{ bottom:0; opacity:1 }
+			}
+			/*----- end here -----*/
+		</style>
+	</head>
+	<body onload="myFunction()" style="margin:0;">
+		<div id="loader"></div>
+			<script>
+		var myVar;
+		function myFunction() {
+		  myVar = setTimeout(showPage, 1750);
+		}
+		function showPage() {
+		  document.getElementById("loader").style.display = "none";
+		}
+		</script>
+		<script>
+		function mydark() {
+			var element = document.body;
+			element.classList.toggle("dark-mode");
+		}
+		</script>
+		<div class="green_block"> </div>
+		<div class="green_block_down"> </div>
+		<div class="img_kku"> <img src="img/KKU.png", width="123px" height="100px" alt="img for KKU"> </div>
+		<div class="boxoftitle"> All content page </div>
+		<div class="lines_big"> </div>
+		<div class="line_small"> </div>
+		<div class="gmail">Our e-mail is: <a href="mailto:forproject1998@gmail.com">forproject1998@gmail.com</a></div>
+		<div class="location"> KSA - Asiri region - Abha city - qurayqar </div>
+		<div class="accounts"> Our social media accounts: </div>
+		<div class="dm"> Dark-mode </div>
+		<label class="switch">
+			<input type="checkbox"onclick="mydark()">
+			<span class="slider round"> </span>
+		</label>
+
+		    <!--All in below will use database-->
+		<form class="youtube" action="https://www.youtube.com/channel/UC_3gfuooYibe9HNHIzOhkoA" method="GET">
+			<button type="submit"> <i class="youtube"></i> </button>
+		</form>
+			<!---------------------------------->
+		<form class="twitter" action="https://twitter.com/Default_n4me?s=09" method="GET">
+			<button type="submit"> <i class="twitter"></i> </button>
+		</form>
+			<!---------------------------------->
+		<form class="facebook" action="/action_page.php">
+			<button type="submit"> <i class="facebook"></i> </button>
+		</form>
+			<!---------------------------------->
+		<form class="Computer_science" action="cs_courses_user.html" method="GET">
+			<button type="submit"> <i class="Computer science"></i> </button>
+		</form>
+			<!---------------------------------->
+		<form class="Information_system" action="IS_courses_user.html">
+			<button type="submit"> <i class="Information system"></i> </button>
+		</form>
+			<!---------------------------------->
+		<form class="searchbox" action="/action_page.php">
+			<input type="text" placeholder="Search..." name="searchbox">
+			<button type="submit"> <i class="searchbox"></i> </button>
+		</form>
+			<!---------------------------------->
+		<form class="home" action="Home-page.html" method="GET">
+			<button type="submit"> <i class="home"></i> Home </button>
+		</form>
+		    <!---------------------------------->
+		<form class="about_us" action="about_us.html">
+			<button type="submit"> <i class="about_us"></i> About us </button>
+		</form>
+			<!---------------------------------->
+		<div class="Computer_science_block"> Computer science </div>
+		<div class="Information_system_block"> Inf-system </div>
+	</body>
+</html>

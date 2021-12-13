@@ -1,0 +1,28 @@
+::-webkit-scrollbar {
+    width: 17px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  } 
+  ::-webkit-scrollbar-thumb {
+    background: white;
+    background-image: url(img/KKU.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-x: center;
+    background-position-y: center;
+    border-radius: 10px;
+    
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: gray; 
+    background-image: url(img/KKU.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-x: center;
+    background-position-y: center;
+    border-radius: 10px;
+    
+  }
+  /*  <link rel="stylesheet" href="ScrollBar.css">  */

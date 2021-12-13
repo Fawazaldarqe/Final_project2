@@ -1,0 +1,184 @@
+body{
+    background-color: whitesmoke;
+}
+th{
+    background-color: limegreen;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    font-style: oblique;
+    font-variant: small-caps;
+    font-family: sans-serif;
+}
+form.links button{
+    height: 40px;
+    width: 75px;
+    font-size: medium;
+    background-color: limegreen;
+    color: white;
+    border-style: none none none none;
+    border-radius: 4px;
+    border-color: white;
+    cursor: pointer;
+}
+.more-space{
+    color: white;
+}
+.labs{
+        display: inline-block;
+        width: 100px;
+        color: black;
+        font-size: medium;
+        font-style: oblique;
+        font-variant: small-caps;
+        font-family: sans-serif;
+}
+.color{
+    background-color: limegreen;
+    color: white;
+    border-style: none none none none;
+    font-style: oblique;
+    font-variant: small-caps;
+    font-family: sans-serif;
+    border-color: white;
+}
+.color:hover{
+    background-color: grey;
+    color: white;
+    border-style: none none inset none;
+    font-size: medium;
+    font-style: oblique;
+    font-variant: small-caps;
+    font-family: sans-serif;
+    border-color: white;
+}
+.quarter_circle_top_left{
+    width: 75px;
+    height: 75px;
+    background: limegreen;
+    border-radius: 0 0 100px 0;
+    -moz-border-radius: 0 0 100px 0;
+    -webkit-border-radius: 0 0 100px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    }
+.quarter_circle_top_right{
+    width: 75px;
+    height: 75px;
+    background: limegreen;
+    border-radius: 0 0 0 100px; 
+    -moz-border-radius: 0 0 0 100px;
+    -webkit-border-radius: 0 0 0 100px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    }
+.quarter_circle_bottom_left{
+    width: 75px;
+    height: 75px;
+    background: limegreen;
+    border-radius: 0 100px 0 0;
+    -moz-border-radius: 0 100px 0 0;
+    -webkit-border-radius: 0 100px 0 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    }
+.quarter_circle_bottom_right{
+    width: 75px;
+    height: 75px;
+    background: limegreen;
+    border-radius: 100px 0 0 0;
+    -moz-border-radius: 100px 0 0 0;
+    -webkit-border-radius: 100px 0 0 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    }
+    /*dark mode start here*/
+    .dm{
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+        position: absolute;
+        top: 50px;
+        left: 585px;
+    }
+    .dark-mode {
+        background-color: gray;
+        background-repeat: initial;
+        background-attachment: scroll;
+        background-size: cover;
+        background-position-y: 210px;
+        background-position-x: center;
+    }
+    .switch {
+        position: absolute;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        top: 15px;
+        left: 600px;
+    }
+    .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+    .slider.round {
+        border-radius: 34px;
+    }
+    .slider.round:before {
+        border-radius: 50%;
+    }
+    /*dark mode end here*/
+
+    .progress-container {
+        position: fixed;
+        top: 77px;
+        width: 100%;
+        height: 20px;
+        background: #ccc;
+      }
+      .progress-bar {
+        position: fixed;
+        top: 77px;
+        height: 20px;
+        background: green;
+        width: 0%;
+      }
+    

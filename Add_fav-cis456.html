@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <title>Add in Favorite</title>
+        <link rel="stylesheet" href="page-cover.css">
+        <link rel="stylesheet" href="ScrollBar.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <style>
+        .labs{
+          display: inline-block;
+          width: 100px;
+        }
+        form.forum button{
+          position: absolute;
+          left: 740px;
+          top: 240px;
+          width: 150px; 
+          height: 50px;
+          cursor: pointer;
+          border-color: white;
+          border-radius: 15px;
+          border-style: solid ;
+          border-width: 3px;
+          background-color: goldenrod;
+          color: white;
+          font-size: medium;
+          font-weight: bold;
+          text-align: center;
+			  }
+        form.forum button:hover{
+          background-color: darkgoldenrod;
+        }
+        form.fav button{
+          position: absolute;
+          left: 558px;
+          top: 240px;
+          width: 150px; 
+          height: 50px;
+          cursor: pointer;
+          border-color: white;
+          border-radius: 15px;
+          border-style: solid ;
+          border-width: 3px;
+          background-color: blue;
+          color: white;
+          font-size: medium;
+          font-weight: bold;
+          text-align: center;
+			  }
+        form.fav button:hover{
+          background-color: darkblue;
+        }
+        form.GoAddBtn button{
+          position: absolute;
+          left: 730px;
+          top: 240px;
+          width: 150px; 
+          height: 50px;
+          cursor: pointer;
+          border-color: white;
+          border-radius: 15px;
+          border-style: solid ;
+          border-width: 3px;
+          background-color: green;
+          color: white;
+          font-size: medium;
+          font-weight: bold;
+          text-align: center;
+        }
+        form.GoAddBtn button:hover{
+          background-color: darkgreen;
+        }
+    </style>
+
+    </head>
+    <body>
+      </br></br></br></br>
+      <div class="jumbotron text-center">
+      <h2>Security incident management</h2>
+      <p>Choose your favorite content and add it in your favorites</p> 
+    </div>
+    
+      <div class="progress-container">
+          <div class="progress-bar" id="myBar"></div>
+      </div> 
+        <div class="container wd-40">
+          <div class="progress-container">
+            <div class="progress-bar" id="myBar"></div>
+        </div> 
+            <div class="container">
+                <!--start searsh now-->
+                 <div class="input-group mb-3">
+                    <input id="SearchBar" type="text" class="form-control" placeholder="Search in content" aria-label="Recipient's username" aria-describedby="button-addon2">
+                   
+                    <div class="input-group-append">
+                    <select class="custom-select" id="CategorySelected">
+                       <option selected value="1"> By Subject Name</option>
+                       <option value="2">By type</option>
+                       <!---- <option value="3">sno</option>-->
+                      </select>
+                    <button id="SearchBtn" class="color" type="button">Search</button>
+                </div>
+            </div>
+          <table class ="table table-hover table-dark">
+            <thead>
+              <th>Number content</th>
+              <th>Name</th>
+              <th>type</th> 
+              <!--<th>Lvl</th>-->
+              <th>Link</th>
+              <!--<th>Course</th>-->
+              <th>Control Center</th>
+              
+        
+            </thead>
+            <tbody id="tbody1"> </tbody>
+         </table>
+        </div>
+
+       
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Confirm the transfer of the course to favorites</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <label class="labs" >name:</label>
+          <input type="text" id="NameMod"><br>
+          <label class="labs">type:</label>
+          <input type="text" id="TypeMod"><br>  
+          <!--<label class="labs">Lvl:</label>
+          <input type="text" id="LvlMod"><br>-->
+          <label class="labs">Link:</label>
+          <input type="text" id="LinkMod"><br>
+          <label class="labs">Course:</label>
+          <input type="text" id="CourseMod"><br>
+        </div> 
+        <div class="modal-footer">
+          <button id="addModBtn" type="button" class="btn btn-success" onclick="AddCourse()">Confirm</button>
+
+        </div>
+    
+      </div>
+    </div>
+  </div>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script id="MainScript">
+   
+  const firebaseConfig = {
+        apiKey: "AIzaSyCyUYNEh2VRCsjzxroR94OAkwokutPnDig",
+        authDomain: "upload-5e782.firebaseapp.com",
+        databaseURL: "https://upload-5e782-default-rtdb.firebaseio.com",
+        projectId: "upload-5e782",
+        storageBucket: "upload-5e782.appspot.com",
+        messagingSenderId: "618683601583",
+        appId: "1:618683601583:web:a8fd4ff9bf23812d74fa5a",
+        measurementId: "G-20VYSZPGMZ"
+        };
+  firebase.initializeApp(firebaseConfig);
+  let db = firebase.firestore();
+
+  function GetAllDataOnce(){
+      document.getElementById('tbody1').innerHTML="";
+      CorNo=0;
+      db.collection("Added_CIS456").get().then((querySnapshot)=>{
+          var contents = [];
+          querySnapshot.forEach(doc =>{
+              contents.push(doc.data());
+          });
+          AddAllItemToTheTable(contents);
+      });
+
+  }
+
+  
+//----------Selection of all data ---------------//
+function Select_AllData(){
+    
+    db.collection("Added_CIS456").doc('value', function(snapshot){
+
+      snapshot.forEach(function (childSnapshot){
+
+          var name = childSnapshot.val().NameOfCourses;
+          var type = childSnapshot.val().TypeOc;
+          var link = childSnapshot.val().LinkOc;
+          var course =childSnapshot.val().CourseOc;
+          AddItemToTable(name , type , link ,course);
+
+      });
+    });
+}
+window.onload = Select_AllData;
+
+  var CorNo=0;
+  var Corlist = [];
+  var tbody =document.getElementById('tbody1');
+
+ function AddItemToTable(name,type,link,course){
+     
+     var trow = document.createElement('tr');
+     var td0 = document.createElement('td');
+     var td1 = document.createElement('td');
+     var td2 = document.createElement('td');
+     var td3 = document.createElement('td');
+     var td4 = document.createElement('td');
+     Corlist.push([name,type,link,course]);
+     td0.innerHTML = ++CorNo;
+     td1.innerHTML = name;
+     td2.innerHTML = type;
+     td3.innerHTML = '<a href="'+link+'"target="_blank">Show Content</a>' ,link;
+     //td4.innerHTML = course;
+     td1.classList += "nameField";
+     td2.classList += "typeField";
+     trow.appendChild(td0);
+     trow.appendChild(td1);
+     trow.appendChild(td2);
+     trow.appendChild(td3);
+     //trow.appendChild(td4);
+     //trow.appendChild(td4);
+
+    var ControlDiv = document.createElement("div");
+    //ControlDiv.innerHTML = '<button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#exampleModalCenter " onclick ="FillTboxes(null)">test </button>';
+    ControlDiv.innerHTML += '<button type="button" class="btn btn-primary my-2 ml-2"  data-toggle="modal" data-target="#exampleModalCenter " onclick = "FillTboxes('+CorNo+')">ADD TO Favorite </button>';
+
+    trow.appendChild(ControlDiv);
+     tbody.appendChild(trow);
+
+    }
+
+    var ModName = document.getElementById('NameMod');
+    var ModType = document.getElementById('TypeMod');
+    var ModLink = document.getElementById('LinkMod');
+    var ModCourse = document.getElementById('CourseMod');
+    var BTNmodAdd = document.getElementById('addModBtn');
+
+    function FillTboxes(index){
+
+        if(index==null){
+            ModName.value ="";
+            ModType.value ="";
+            ModLink.value ="";
+            ModCourse.value ="";
+
+        }
+        else{
+            --index;
+            ModName.value = Corlist[index][0];
+            ModType.value = Corlist[index][1];
+            ModLink.value = Corlist[index][2];
+            ModCourse.value = Corlist[index][3];
+
+            ModName.disabled=true;
+            ModType.disabled=true;
+            ModLink.disabled=true;
+            ModCourse.disabled=true;
+
+        }
+
+    }
+
+    function AddAllItemToTheTable(StudentDocsList){
+        CorNo=0;
+        tbody.innerHTML="";
+        StudentDocsList.forEach(element =>{
+           AddItemToTable(element.name,element.type,element.link);
+        });
+    }
+
+  window.onload = GetAllDataOnce;
+  function AddCourse(){
+    var user = firebase.auth().currentUser;
+    db.collection("Users").doc(user.email).collection("Favorite").doc(ModName.value).set({
+      
+      
+
+          name : ModName.value,
+          type : ModType.value,
+          link : ModLink.value,
+          course : ModCourse.value,
+
+
+        },alert("successfully added to favorite"), );
+
+  }
+
+  function AddAllItemToTheTable(contentDocsList){
+        ConNo=0;
+        tbody.innerHTML="";
+        contentDocsList.forEach(element =>{
+            AddItemToTable(element.name,element.type,element.link,element.course);
+        })
+    }
+
+    window.onload = GetAllDataOnce ;
+
+    var SearchBar =document.getElementById("SearchBar");
+    var SearchBtn =document.getElementById("SearchBtn");
+    var category =document.getElementById("CategorySelected");
+    var tbody =document.getElementById("tbody1");
+
+    function SearchTable(category){
+
+        var filter = SearchBar.value.toUpperCase();
+        var tr =tbody.getElementsByTagName("tr");
+        var found;
+
+        for (let i = 0; i < tr.length; i++) {
+            var td =tr[i].getElementsByClassName(category);
+
+            for (let j = 0; j < td.length; j++) {
+                if(td[j].innerHTML.toUpperCase().indexOf(filter) > -1){
+                    found=true;
+                }
+            }
+            if(found){
+                tr[i].style.display="";
+                found=false;
+            }
+            else{
+                tr[i].style.display="none";
+  
+            }
+        }
+
+    }
+
+    SearchBtn.onclick = function(){
+        if(SearchBar.value=="");
+
+        else if(category.value==1)
+            SearchTable("nameField");
+                else if(category.value==2)
+                SearchTable("typeField");
+            
+
+    }
+
+
+</script>
+
+
+    <!---------------------------------->
+    <form class="fav" action="Favorite.html" method="GET">
+      <button type="submit"> <i class="fav"></i>My-favorite</button>
+    </form>
+    <!---------------------------------->
+    <form class="GoAddBtn" action="add_content_CIS456.html" method="GET">
+      <button type="submit"> <i class="fav"></i>Add a content</button>
+    </form>
+    <!---------------------------------->
+    <form class="forum" action="chat.html" method="GET">
+     <!--- <button type="submit"> <i class="forum"></i>Forum of course</button>--->
+    </form>
+    <!---------------------------------->
+    
+    <script>
+      function mydark() {
+          var element = document.body;
+          element.classList.toggle("dark-mode");
+      }
+      </script>
+      
+      <!--this progress bar-->
+      <script>
+          window.onscroll = function() {myFunction()};
+          
+          function myFunction() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+          }
+      </script>
+       <!--this progress bar-->
+  
+      <div class="dm"> Dark-mode </div>
+      <label class="switch">
+          <input type="checkbox"onclick="mydark()">
+          <span class="slider round"> </span>
+      </label>
+  
+      <div class="quarter_circle_top_left"></div>
+      <div class="quarter_circle_top_right"></div>
+      <div class="quarter_circle_bottom_left"></div>
+      <div class="quarter_circle_bottom_right"></div>
+    </body>
+</html>

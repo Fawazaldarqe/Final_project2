@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>History Content</title>
+        <link rel="stylesheet" href="cover_page.css">
+        <link rel="stylesheet" href="ScrollBar.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   
+    </head>
+
+    <body>
+    </br></br></br></br>
+    <div class="jumbotron text-center">
+    <h2>Content reviewed by me</h2>
+    <p>This Page You Can show the content you checked it</p> 
+  </div>
+  
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div> 
+        <div class="container">
+            <!--start searsh now-->
+             <div class="input-group mb-3">
+                <input id="SearchBar" type="text" class="form-control" placeholder="Search in content" aria-label="Recipient's username" aria-describedby="button-addon2">
+               
+                <div class="input-group-append">
+                <select class="custom-select" id="CategorySelected">
+                   <option selected value="1"> By Topic Name</option>
+                   <option value="2">By Email</option>
+                   <option value="3">by course Name</option>
+                  </select>
+                <button id="SearchBtn" class="color" type="button">Search</button>
+            </div>
+        </div>
+         
+        <hr>
+        <table class="table table-bordered table-hover">
+            <thead>
+              <th>Number content</th>
+              <th>Subject Name</th>
+              <th>Email</th>
+              <th>Upload Date</th>
+              <th>Content Type</th>
+              <th>Link</th>
+             <th>course</th>
+              <th>Content status</th>
+            </thead>
+            <tbody id="tbody1"></tbody>
+</table>
+<script type="text/javascript">document.getElementById('date').value = Date();</script>
+<script type="text/javascript">document.getElementById('user').value =user.email();</script>
+
+       
+
+               <div class="more-space">this page is connect %99.9 in database</div>
+        <div class="more-space">-------------------------------------------------------------</div>
+</div>
+
+ 
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script id="MainScript">
+        
+        
+
+            
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyCyUYNEh2VRCsjzxroR94OAkwokutPnDig",
+        authDomain: "upload-5e782.firebaseapp.com",
+        databaseURL: "https://upload-5e782-default-rtdb.firebaseio.com",
+        projectId: "upload-5e782",
+        storageBucket: "upload-5e782.appspot.com",
+        messagingSenderId: "618683601583",
+        appId: "1:618683601583:web:a8fd4ff9bf23812d74fa5a",
+        measurementId: "G-20VYSZPGMZ"
+        };
+  
+    // Initialize Firebase
+    //const app = initializeApp(firebaseConfig);
+    firebase.initializeApp(firebaseConfig);
+    let db = firebase.firestore();
+   // const analytics = getAnalytics(app);
+      var ConNo;
+   var ConList =[];
+   function GetAllDataOnce(){
+    document.getElementById('tbody1').innerHTML="";
+     var CorNo=0;
+      firebase.auth().onAuthStateChanged((user)=>{
+    if(user){
+
+      var user = user.email;      
+      db.collection("Users").doc(user).collection("my_review").get().then((querySnapshot)=>{
+          var upload = [];
+          querySnapshot.forEach(doc =>{
+            upload.push(doc.data());
+            AddAllItemToTheTable(upload);
+          
+          });
+          })
+          
+          .catch((error)=>{
+            alert("There error in page: plaese try later ")
+          });
+        }
+      })
+  }
+    window.onload=GetAllDataOnce();
+   
+    function AddItemToTable(name,user,date,type,link,course,status){
+       
+        var tbody1 = document.getElementById("tbody1");
+        var trow = document.createElement("tr");
+        var td0 = document.createElement("td");
+        var td1 = document.createElement("td");
+        var td2 = document.createElement("td");
+        var td3 = document.createElement("td");
+        var td4 = document.createElement("td");
+        var td5 = document.createElement("td");
+        var td6 = document.createElement("td");
+        var td7 = document.createElement("td");
+
+        ConList.push([name,user,date,type,link,course,status]);
+        td0.innerHTML = ++ConNo;
+        td1.innerHTML = name;
+        td2.innerHTML = user;
+        td3.innerHTML = date;
+        td4.innerHTML = type;
+        td5.innerHTML ='<a href="'+link+'"target="_blank">link</a>' ,link;
+        td6.innerHTML = course;
+        td7.innerHTML = status;
+        td1.classList += "nameField";
+        td2.classList += "EmailField";
+        td6.classList += "CourseField";
+        //td2.classList += "linkField";
+        trow.appendChild(td0);
+        trow.appendChild(td1);
+        trow.appendChild(td2);
+        trow.appendChild(td3);
+        trow.appendChild(td4);
+        trow.appendChild(td5);
+        trow.appendChild(td6);
+        trow.appendChild(td7);
+
+        
+
+        var ControlDiv = document.createElement("div");
+        trow.appendChild(ControlDiv);
+        tbody1.appendChild(trow);
+    }
+        var ModName=document.getElementById('NameMod');
+        var ModType=document.getElementById('TypeMod');
+        var ModLink=document.getElementById('LinkMod');
+        var ModCourse=document.getElementById('CourseMod');
+
+
+      
+        
+        
+
+       
+    function AddAllItemToTheTable(contentDocsList){
+        ConNo=0;
+        tbody.innerHTML="";
+        contentDocsList.forEach(element =>{
+            AddItemToTable(element.name,element.user,element.date,element.type,element.link,element.course,element.status);
+        })
+    }
+
+    window.onload = GetAllDataOnce ;
+
+    var SearchBar =document.getElementById("SearchBar");
+    var SearchBtn =document.getElementById("SearchBtn");
+    var category =document.getElementById("CategorySelected");
+    var tbody =document.getElementById("tbody1");
+
+    function SearchTable(category){
+
+        var filter = SearchBar.value.toUpperCase();
+        var tr =tbody.getElementsByTagName("tr");
+        var found;
+
+        for (let i = 0; i < tr.length; i++) {
+            var td =tr[i].getElementsByClassName(category);
+
+            for (let j = 0; j < td.length; j++) {
+                if(td[j].innerHTML.toUpperCase().indexOf(filter) > -1){
+                    found=true;
+                }
+            }
+            if(found){
+                tr[i].style.display="";
+                found=false;
+            }
+            else{
+                tr[i].style.display="none";
+  
+            }
+        }
+
+    }
+
+    SearchBtn.onclick = function(){
+        if(SearchBar.value=="");
+
+        else if(category.value==1)
+            SearchTable("nameField");
+
+                else if(category.value==2)
+                SearchTable("EmailField");
+            
+         else if(category.value==3)
+            SearchTable("CourseField");
+    }
+
+  </script>
+    <script>
+    function mydark() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+    }
+    </script>
+    
+    <!--this progress bar-->
+    <script>
+        window.onscroll = function() {myFunction()};
+        
+        function myFunction() {
+          var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+          var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          var scrolled = (winScroll / height) * 100;
+          document.getElementById("myBar").style.width = scrolled + "%";
+        }
+    </script>
+    
+     <!--this progress bar-->
+
+    <div class="dm"> Dark-mode </div>
+    <label class="switch">
+        <input type="checkbox"onclick="mydark()">
+        <span class="slider round"> </span>
+    </label>
+
+    <div class="quarter_circle_top_left"></div>
+    <div class="quarter_circle_top_right"></div>
+    <div class="quarter_circle_bottom_left"></div>
+    <div class="quarter_circle_bottom_right"></div>
+
+</body>
+</html>

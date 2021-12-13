@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Create Account</title>
+        <meta name="description" content="Assistant academic educational site or AAES is right way to success"/>
+        <style>
+            body{
+                background-color: rgb(229, 229, 229);
+             }
+            .line_in_middle {
+                border-left: 4px solid black;
+                position:absolute;
+                height: 350px;
+                left: 50%;
+                top: 150px;
+            }
+            .img_content {
+                position: absolute;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                left: 17%;
+                top: 185px;
+            }
+            .titles {
+                position: absolute;
+                font-size: 27px;
+                font-family: Cursive;
+                font-weight: bold;
+                left: 15%;
+                top: 385px;
+                color: green;
+            }
+            .button_position {
+                position: absolute;
+                right: 17%;
+                top: 170px;
+                text-align: center;
+            }
+            .submit {
+                color: white;
+                background-color: green;
+                border: none;
+                padding: 10px;
+                text-decoration: none;
+                cursor: pointer;
+                border-radius: 25px;
+                width: 50%;
+                outline-color: black;
+                outline-width: 1.5px;
+                }
+            .text-1:hover {
+                border-color: blue;
+                border-radius: 25px;
+                width: 205px;
+                padding: 10px;
+                box-sizing: border-box;
+                outline-color: black;
+                outline-width: 1.5px;
+                line-height: 20px;
+                vertical-align: middle;
+                text-align: center;
+                vertical-align: middle;
+                text-align: center;
+                }
+            .password-1:hover {
+                border-color: blue;
+                border-radius: 25px;
+                width: 205px;
+                padding: 10px;
+                box-sizing: border-box;
+                outline-color: black;
+                outline-width: 1.5px;
+                line-height: 20px;
+                vertical-align: middle;
+                text-align: center;
+                }
+            .text-1 {
+                border-color: black;
+                border-radius: 25px;
+                width: 205px;
+                padding: 10px;
+                box-sizing: border-box;
+                outline-color: black;
+                outline-width: 1.5px;
+                line-height: 20px;
+                vertical-align: middle;
+                text-align: center;
+                background-image: url(img/mail.png);
+                background-size: 31px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-position: 7%;
+                }
+            .password-1 {
+                border-color: black;
+                border-radius: 25px;
+                width: 205px;
+                padding: 10px;
+                box-sizing: border-box;
+                outline-color: black;
+                outline-width: 1.5px;
+                line-height: 20px;
+                vertical-align: middle;
+                text-align: center;
+                background-image: url(img/lock.png);
+                background-size: 31px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-position: 7%;
+            }
+            .quarter_circle_top_left{
+                width: 75px;
+                height: 75px;
+                background: gray;
+                border-radius: 0 0 100px 0;
+                -moz-border-radius: 0 0 100px 0;
+                -webkit-border-radius: 0 0 100px 0;
+                position: fixed;
+                top: 0;
+                left: 0;
+                }
+            .quarter_circle_top_right{
+                width: 75px;
+                height: 75px;
+                background: gray;
+                border-radius: 0 0 0 100px; 
+                -moz-border-radius: 0 0 0 100px;
+                -webkit-border-radius: 0 0 0 100px;
+                position: fixed;
+                top: 0;
+                right: 0;
+                }
+            .quarter_circle_bottom_left{
+                width: 75px;
+                height: 75px;
+                background: gray;
+                border-radius: 0 100px 0 0;
+                -moz-border-radius: 0 100px 0 0;
+                -webkit-border-radius: 0 100px 0 0;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                }
+            .quarter_circle_bottom_right{
+                width: 75px;
+                height: 75px;
+                background: gray;
+                border-radius: 100px 0 0 0;
+                -moz-border-radius: 100px 0 0 0;
+                -webkit-border-radius: 100px 0 0 0;
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                }
+            .google_translate{
+                position: absolute;
+                left: -730px;
+                top: -160px;
+                text-align: center;
+                background-color: gray;
+                border: none;
+                color: white;
+                padding: 10px;
+                text-decoration: none;
+                cursor: pointer;
+                border-radius: 25px;
+                width: 65%;
+                outline-color: black;
+                outline-width: 1.5px;
+            }
+        </style>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');}
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+            </script>
+           <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>-->
+           <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+           <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+           <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+
+           <script >
+   
+               const firebaseConfig = {
+                     apiKey: "AIzaSyCyUYNEh2VRCsjzxroR94OAkwokutPnDig",
+                     authDomain: "upload-5e782.firebaseapp.com",
+                     databaseURL: "https://upload-5e782-default-rtdb.firebaseio.com",
+                     projectId: "upload-5e782",
+                     storageBucket: "upload-5e782.appspot.com",
+                     messagingSenderId: "618683601583",
+                     appId: "1:618683601583:web:a8fd4ff9bf23812d74fa5a",
+                     measurementId: "G-20VYSZPGMZ"
+                     };
+               firebase.initializeApp(firebaseConfig);
+              //firebase.analytics();
+
+               const auth =  firebase.auth();
+               let db = firebase.firestore();
+              //let ref =firebase.database();
+               
+               
+           
+             
+             </script>
+            <script src="signup_super.js"></script>
+            <script src="reset_super.js"></script>
+                <title>Login System</title>
+    </head>
+    <body> 
+        <div class = "img_content"> <img src="img/Designation.png" width=200 height=200 alt="img for content"> </div>
+        <div class = "titles">Appointment of a course </br> supervisor by e-mail</div>
+        <div class = "line_in_middle"> </div>
+        <div class = "button_position">
+        <div id= "google_translate_element" class=google_translate></div>
+        <!--All in below will use database-->
+        <!--<form action="action_page.php" method="post">  -->          
+            <div class="signUp"> 
+            <label for="mail"> </label>
+                <input type="email" class="text-1" placeholder="Your e-mail" id="email" >
+            </br><p> </p>
+                <label for="psw"> </label>
+                <input type="hidden" class="password-1" placeholder="Make password" id="password" value="123456"> 
+            </br><p> </p>
+            
+            <button class="submit" onclick="signUp()" id="signUp">SignUp</button>
+            </br><p> </p>
+            <span class="psw"> <a href="personal_admin.html">Back to admain page</a> </span>
+        </div>
+       <!----</form>-->
+        <!--to here-->
+        </div>
+    </div>
+   <!-- <div th:replace="fragments/loginsidebar :: loginsidebar"/> --></div>
+</div>
+        <div class="quarter_circle_top_left"></div>
+        <div class="quarter_circle_top_right"></div>
+        <div class="quarter_circle_bottom_left"></div>
+        <div class="quarter_circle_bottom_right"></div>
+</html>

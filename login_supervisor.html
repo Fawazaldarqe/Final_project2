@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Login For Supervisor</title>
+        <meta name="description" content="Assistant academic educational site or AAES is right way to success"/>
+        <style>
+            body{
+                background-color: rgb(229, 229, 229);
+             }
+            .line_in_middle {
+                border-left: 4px solid black;
+                position:absolute;
+                height: 350px;
+                left: 50%;
+                top: 150px;
+            }
+            .img_content {
+                position: absolute;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                left: 200px;
+                top: 185px;
+            }
+            .titles {
+                position: absolute;
+                font-size: 27px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-weight: bold;
+                left: 204px;
+                top: 385px;
+            }
+            .img_KKU {
+                position: absolute;
+                right: 200px;
+                top: 100px;
+            }
+            .button_position {
+                position: absolute;
+                right: 216px;
+                top: 340px;
+                text-align: center;
+            }
+            input[type=button]:hover {
+                color: white;
+                background-color: gray;
+                border: none;
+                padding: 10px;
+                text-decoration: none;
+                cursor: pointer;
+                border-radius: 25px;
+                width: 90px;
+                outline-color: black;
+                outline-width: 1.5px;
+                }
+            input[type=email]:hover {
+                border-color: blue;
+                border-radius: 25px;
+                width: 205px;
+                padding: 10px;
+                box-sizing: border-box;
+                outline-color: black;
+                outline-width: 1.5px;
+                line-height: 20px;
+                vertical-align: middle;
+                text-align: center;
+                background-image: url(img/parson.png);
+                background-size: 31px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-position: 7%;
+                }
+            input[type=password]:hover {
+                border-color: blue;
+                border-radius: 25px;
+                width: 205px;
+                padding: 10px;
+                box-sizing: border-box;
+                outline-color: black;
+                outline-width: 1.5px;
+                line-height: 20px;
+                vertical-align: middle;
+                text-align: center;
+                background-image: url(img/lock.png);
+                background-size: 31px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-position: 7%;
+                }
+            input[type=email] {
+                border-color: black;
+                border-radius: 25px;
+                width: 205px;
+                padding: 10px;
+                box-sizing: border-box;
+                outline-color: black;
+                outline-width: 1.5px;
+                line-height: 20px;
+                vertical-align: middle;
+                text-align: center;
+                background-image: url(img/parson.png);
+                background-size: 28px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-position: 7%;
+            }
+            input[type=password] {
+                border-color: black;
+                border-radius: 25px;
+                width: 205px;
+                padding: 10px;
+                box-sizing: border-box;
+                outline-color: black;
+                outline-width: 1.5px;
+                line-height: 20px;
+                vertical-align: middle;
+                text-align: center;
+                background-image: url(img/lock.png);
+                background-size: 28px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-position: 7%;
+            }
+            input[type=button], input[type=submit], input[type=reset] {
+                background-color: gray;
+                border: none;
+                color: white;
+                padding: 10px;
+                text-decoration: none;
+                cursor: pointer;
+                border-radius: 25px;
+                width: 90px;
+                outline-color: black;
+                outline-width: 1.5px;
+            }
+            .quarter_circle_top_left{
+                width: 75px;
+                height: 75px;
+                background: gray;
+                border-radius: 0 0 100px 0;
+                -moz-border-radius: 0 0 100px 0;
+                -webkit-border-radius: 0 0 100px 0;
+                position: fixed;
+                top: 0;
+                left: 0;
+                }
+            .quarter_circle_top_right{
+                width: 75px;
+                height: 75px;
+                background: gray;
+                border-radius: 0 0 0 100px; 
+                -moz-border-radius: 0 0 0 100px;
+                -webkit-border-radius: 0 0 0 100px;
+                position: fixed;
+                top: 0;
+                right: 0;
+                }
+            .quarter_circle_bottom_left{
+                width: 75px;
+                height: 75px;
+                background: gray;
+                border-radius: 0 100px 0 0;
+                -moz-border-radius: 0 100px 0 0;
+                -webkit-border-radius: 0 100px 0 0;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                }
+            .quarter_circle_bottom_right{
+                width: 75px;
+                height: 75px;
+                background: gray;
+                border-radius: 100px 0 0 0;
+                -moz-border-radius: 100px 0 0 0;
+                -webkit-border-radius: 100px 0 0 0;
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                }
+            .google_translate{
+                position: absolute;
+                left: 78px;
+                top: 20px;
+                text-align: center;
+                background-color: gray;
+                border: none;
+                color: white;
+                padding: 10px;
+                text-decoration: none;
+                cursor: pointer;
+                border-radius: 25px;
+                width: 123px;
+                outline-color: black;
+                outline-width: 1.5px;
+            }
+            form.Continue button {
+                border: 0;
+                border-radius: 0.90rem;
+                background: gray;
+                color: white;
+                font-family: sans-serif;
+                font-size: 15px;
+                line-height: 1.2;
+                white-space: nowrap;
+                text-decoration: none;
+                padding: 7px 28px;
+                margin: 5px;
+                cursor: pointer;
+            }
+            button.Logout {
+                border: 0;
+                border-radius: 0.90rem;
+                background: red;
+                color: white;
+                font-family:  sans-serif;
+                font-size: 15px;
+                line-height: 1.2;
+                white-space: nowrap;
+                text-decoration: none;
+                padding: 7px 28px;
+                margin: 5px;
+                cursor: pointer;
+            }
+            button.Login {
+                border: 0;
+                border-radius: 0.90rem;
+                background: limegreen;
+                color: white;
+                font-family:  sans-serif;
+                font-size: 15px;
+                line-height: 1.2;
+                text-decoration: none;
+                padding: 10px 20px;
+                margin: 5px;
+                cursor: pointer;
+            }
+            p{
+                color: black;
+                font-size: medium;
+                font-family: fantasy;
+                font-style: italic;
+                font-weight: bold;
+            }
+        </style>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');}
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+            </script>
+            
+    </head>
+    <body>
+        <div id= "google_translate_element" class=google_translate></div>
+        <div class = "img_content"> <img src="img/big brother.png" width=200 height=200 alt="img for content"> </div>
+        <div class = "titles">Assistant academic </br> educational site </br> supervisor login page </div></div>
+        <div class = "line_in_middle"> </div>
+        <div class = "img_KKU"> <img src="img/KKU.png" width=220 height=220 alt="img for KKU"> </div>
+        <div class = "button_position">
+        <!--All in below will use database-->
+        <!--<form action="action_page.php" method="post">  
+            
+            
+
+        <!-make function its name login_div here start--> 
+               <div id="login_div" >
+                <input type="email" placeholder="Enter email" id="email_field" />
+            </br><p> </p>
+                <input type="password" placeholder="Enter Password" id="password_field" />
+            </br><p> </p>
+                <button class="Login" onclick="login()">Login</button></br><p> </p><!--here end-->
+                <span class="Forgot"> <a href="reset_supervisor.html" onclick="forgotPass()">Forgot Password?</a> </span>
+            </br><p> </p>
+            <span class="singup"> <a href="login_user.html">Login user</a> </span>
+            </div>
+
+
+            <!--Add here function after press user login transtion to new page -->
+            <div id="user_div">
+                <form class="Continue" action="personal_supervisor.html" method="GET">
+                    <button type="submit"> <i class="Continue"></i> Continue </button>
+                 </form>
+                    <button class="Logout"  onclick="logout()">Logout</button>
+                    <span class="psw"> </span>
+            </div>
+               <!---- <span class="singin"> <a href="create.html">Create new account?</a> </span>-->
+        </form>
+        <!--to here-->
+        </div>
+    </div>
+</div>
+        <div class="quarter_circle_top_left"></div>
+        <div class="quarter_circle_top_right"></div>
+        <div class="quarter_circle_bottom_left"></div>
+        <div class="quarter_circle_bottom_right"></div>
+
+
+                 <!--REMOVE COMMENT TO WORK FIREBASE-->
+                 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+                 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+                 <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+                
+                 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+                  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyCyUYNEh2VRCsjzxroR94OAkwokutPnDig",
+                     authDomain: "upload-5e782.firebaseapp.com",
+                     databaseURL: "https://upload-5e782-default-rtdb.firebaseio.com",
+                     projectId: "upload-5e782",
+                     storageBucket: "upload-5e782.appspot.com",
+                     messagingSenderId: "618683601583",
+                     appId: "1:618683601583:web:a8fd4ff9bf23812d74fa5a",
+                     measurementId: "G-20VYSZPGMZ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  const auth =  firebase.auth();
+  let db = firebase.firestore();
+  let ref = firebase.database();
+  </script>
+  <script>
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      addToUsers(user);
+      getUserData(user);
+  
+  
+      document.getElementById("user_div").style.display = "block";
+      document.getElementById("login_div").style.display = "none";
+  
+      var user = firebase.auth().currentUser;
+  
+      if(user != null){
+        var email_id = user.email;
+        document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
+  
+    
+      }
+  
+    } else {
+      // No user is signed in.
+  
+      document.getElementById("user_div").style.display = "none";
+      document.getElementById("login_div").style.display = "block";
+  
+    }
+  });
+  
+  function login(){
+  
+    var userEmail = document.getElementById("email_field").value;
+    var userPass = document.getElementById("password_field").value;
+  
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      
+      window.alert("Error :"+errorMessage  );
+        
+      // ...
+    });
+  
+  
+  }
+  function addToUsers(user) {
+      var email = user.email;
+      var uid = user.uid;
+      var users = db.collection("users").doc(uid);
+      users.set({
+          email: email,
+          id: uid
+      });
+  }
+  function getUserData(user) {
+      firebase.database().ref('messages/').once("value", snapshot => {
+          console.log(snapshot.val())
+      })
+  }
+ 
+    firebase.auth().signOut();
+  
+  
+    </script>
+    
+  </body>
+  </html>
